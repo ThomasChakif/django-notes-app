@@ -55,7 +55,7 @@ function Form({route, method}) {
     {/* prompt the user to go to register page if they dont have an account yet */}
     {method === 'login' && (
         <div className='reg-box'>
-            <p className='redirect-register'>Don't have an account? Click here to register!</p>
+            <h3 className='redirect-register'>Don't have an account? Click here to register!</h3>
             <button className='register-button' onClick={() => navigate('/register')}>Register</button>
         </div>
     )}
