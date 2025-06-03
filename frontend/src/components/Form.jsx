@@ -33,7 +33,7 @@ function Form({route, method}) {
         }
     }
 
-    return ( 
+    return ( <div>
     <form className = "form-container" onSubmit={handleSubmit}>
         <h1>{name}</h1> 
         <input 
@@ -52,6 +52,14 @@ function Form({route, method}) {
         </input>
         <button className='form-button' type='submit'>{name}</button>
     </form>
+    {/* prompt the user to go to register page if they dont have an account yet */}
+    {method === 'login' && (
+        <div className='reg-box'>
+            <p className='redirect-register'>Don't have an account? Click here to register!</p>
+            <button className='register-button' onClick={() => navigate('/register')}>Register</button>
+        </div>
+    )}
+    </div>
     );
 }
 

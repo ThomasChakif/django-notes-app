@@ -2,11 +2,13 @@ import { useState, useEffect } from "react"
 import api from "../api"
 import Note from '../components/Note'
 import '../styles/Home.css'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
     const [notes, setNotes] = useState([]);
     const [content, setContent] = useState("");
     const [title, setTitle] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         getNotes()
@@ -41,13 +43,14 @@ function Home() {
 
     return (
     <div>
-        <div>
+        <div className = 'header'>
             <h2>Notes</h2>
+            <button className = 'logout-button' onClick={() => navigate('/logout')}>Logout</button>
             {/* display all notes */}
+        </div>
             {notes.map((note) => (
                 <Note note={note} onDelete={deleteNote} key={note.id}/>
             ))}
-        </div>
         <h2>Create a Note</h2>
         <form onSubmit={createNote}>
             <label htmlFor="title">Title:</label>
