@@ -2,6 +2,7 @@ import {useState} from 'react'
 import api from '../api'
 import { useNavigate } from 'react-router-dom'
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants'
+import '../styles/Form.css'
 
 
 function Form({route, method}) {
@@ -33,7 +34,8 @@ function Form({route, method}) {
         }
     }
 
-    return <form className = "form-container" onSubmit={handleSubmit}>
+    return ( 
+    <form className = "form-container" onSubmit={handleSubmit}>
         <h1>{name}</h1> 
         <input 
             className="form-input" 
@@ -51,4 +53,7 @@ function Form({route, method}) {
         </input>
         <button className='form-button' type='submit'>{name}</button>
     </form>
+    );
 }
+
+export default Form

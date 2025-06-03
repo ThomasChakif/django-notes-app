@@ -7,7 +7,7 @@ import NotFound from './pages/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 import Logout from './pages/Logout'
 
-function Logout() {
+function UserLogout() {
   localStorage.clear() //clear access and refresh tokens
   return <Navigate to="/login"/>
 }
